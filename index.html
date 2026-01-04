@@ -156,6 +156,10 @@
         .replaceAll("š", "s")
         .replaceAll("ž", "z");
 
+    guests.forEach(guest => {
+      guest.normalizedName = normalize(guest.name);
+    })
+
     function renderList(items) {
       listEl.innerHTML = "";
       if (!items.length) {
@@ -186,7 +190,7 @@
     function filterList() {
       const term = normalize(searchEl.value.trim());
       const filtered = term
-        ? guests.filter(({ name }) => normalize(name).includes(term))
+        ? guests.filter(({ normalizedName }) => normalizedName.includes(term))
         : guests;
       renderList(filtered);
     }
