@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raspored sjedenja</title>
+  <style>
+    :root {
+      --bg: #f8f8fb;
+      --card: #ffffff;
+      --text: #1f1f2b;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --border: #e5e7eb;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 18px;
+      padding: 16px;
+    }
+    .app {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      padding: 12px 0 4px;
+      background: linear-gradient(var(--bg) 70%, transparent);
+      z-index: 1;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: 0.02em;
+    }
+    .search {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: 0 6px 20px rgba(31, 31, 43, 0.06);
+    }
+    .search label {
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 16px;
+    }
+    .search input {
+      border: none;
+      outline: none;
+      font-size: 18px;
+      flex: 1;
+      background: transparent;
+      color: var(--text);
+    }
+    .search input::placeholder {
+      color: #a0a0b1;
+    }
+    .list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(31, 31, 43, 0.05);
+    }
+    .name {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .table {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(79, 70, 229, 0.08);
+      border: 1px solid rgba(79, 70, 229, 0.15);
+      min-width: 72px;
+      text-align: center;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 32px 12px;
+      font-size: 18px;
+    }
+    @media (min-width: 640px) {
+      body { padding: 32px; }
+      .list { grid-template-columns: 1fr 1fr; }
+      .card { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Raspored sjedenja</h1>
+      <div class="search" role="search">
+        <label for="search">Pretraga</label>
+        <input id="search" type="text" placeholder="Upiši svoje ime..." autocomplete="off" />
+      </div>
+    </header>
+
+    <section class="list" id="guest-list" aria-live="polite"></section>
+    <p class="empty" id="empty-state" hidden>No matching guests yet.</p>
+  </main>
+
+  <script>
+    // Update this list as needed.
+    const guests = [
+      { name: "Alice Smith", table: 1 },
+      { name: "Bob Johnson", table: 2 },
+      { name: "Carla Nguyen", table: 3 },
+      { name: "Daniel Lee", table: 4 },
+      { name: "Ella Martinez", table: 5 },
+      { name: "Felix Brown", table: 6 },
+      { name: "Grace Kim", table: 1 },
+      { name: "Henry Clark", table: 2 },
+      { name: "Isabel Davis", table: 3 },
+      { name: "Jack Wilson", table: 4 }
+    ];
+
+    const listEl = document.getElementById("guest-list");
+    const emptyEl = document.getElementById("empty-state");
+    const searchEl = document.getElementById("search");
+
+    function renderList(items) {
+      listEl.innerHTML = "";
+      if (!items.length) {
+        emptyEl.hidden = false;
+        return;
+      }
+      emptyEl.hidden = true;
+      const fragment = document.createDocumentFragment();
+      items.forEach(({ name, table }) => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const nameEl = document.createElement("div");
+        nameEl.className = "name";
+        nameEl.textContent = name;
+
+        const tableEl = document.createElement("div");
+        tableEl.className = "table";
+        tableEl.textContent = `Stol ${table}`;
+
+        card.appendChild(nameEl);
+        card.appendChild(tableEl);
+        fragment.appendChild(card);
+      });
+      listEl.appendChild(fragment);
+    }
+
+    function filterList() {
+      const term = searchEl.value.trim().toLowerCase();
+      const filtered = term
+        ? guests.filter(({ name }) => name.toLowerCase().includes(term))
+        : guests;
+      renderList(filtered);
+    }
+
+    searchEl.addEventListener("input", filterList);
+    renderList(guests);
+  </script>
+</body>
+</html>
+
