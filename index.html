@@ -131,21 +131,30 @@
   <script>
     // Update this list as needed.
     const guests = [
-      { name: "Alice Smith", table: 1 },
-      { name: "Bob Johnson", table: 2 },
-      { name: "Carla Nguyen", table: 3 },
-      { name: "Daniel Lee", table: 4 },
-      { name: "Ella Martinez", table: 5 },
-      { name: "Felix Brown", table: 6 },
-      { name: "Grace Kim", table: 1 },
-      { name: "Henry Clark", table: 2 },
-      { name: "Isabel Davis", table: 3 },
-      { name: "Jack Wilson", table: 4 }
+      { name: "Alice Čabarkapa", table: 1 },
+      { name: "Aleksandra Čižmanić", table: 2 },
+      { name: "Ana Jurić", table: 3 },
+      { name: "Anja Lukić", table: 4 },
+      { name: "Anja Tolić", table: 5 },
+      { name: "Anja Vuković", table: 6 },
+      { name: "Anja Živković", table: 7 },
+      { name: "Anja Škorić", table: 8 },
+      { name: "Anja Petrović", table: 9 },
+      { name: "Anja Đurić", table: 10 }
     ];
 
     const listEl = document.getElementById("guest-list");
     const emptyEl = document.getElementById("empty-state");
     const searchEl = document.getElementById("search");
+
+    const normalize = (value) =>
+      value
+        .toLowerCase()
+        .replaceAll("č", "c")
+        .replaceAll("ć", "c")
+        .replaceAll("đ", "d")
+        .replaceAll("š", "s")
+        .replaceAll("ž", "z");
 
     function renderList(items) {
       listEl.innerHTML = "";
@@ -175,9 +184,9 @@
     }
 
     function filterList() {
-      const term = searchEl.value.trim().toLowerCase();
+      const term = normalize(searchEl.value.trim());
       const filtered = term
-        ? guests.filter(({ name }) => name.toLowerCase().includes(term))
+        ? guests.filter(({ name }) => normalize(name).includes(term))
         : guests;
       renderList(filtered);
     }
