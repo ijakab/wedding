@@ -131,167 +131,630 @@
   <script>
     // Update this list as needed.
     const guests = [
-      { name: "Janja Benčić", table: 2 },
-      { name: "Klara Seder", table: 1 },
-      { name: "Dorotea Franjić", table: 5 },
-      { name: "Jasenka Ronko", table: 7 },
-      { name: "Franjo Selgrad", table: 4 },
-      { name: "Mislav Mikić", table: 10 },
-      { name: "Nada Knežević", table: 8 },
-      { name: "Katarina Todorić", table: 6 },
-      { name: "Darinka Jakab Levaković", table: 3 },
-      { name: "Darko Hranić", table: 11 },
-      { name: "Stjepan Kljunić", table: 14 },
-      { name: "Mandica Sanković", table: 15 },
-      { name: "Ivo Sorčik", table: 12 },
-      { name: "Damir Jakopiček", table: 16 },
-      { name: "Antonio Bajivić", table: 13 },
-      { name: "Tomislav Širić", table: 9 },
-      { name: "Matija Benčić", table: 2 },
-      { name: "Lucija Seder", table: 1 },
-      { name: "Filip Dutina", table: 5 },
-      { name: "Ivan Ronko", table: 7 },
-      { name: "Dragana Marin", table: 4 },
-      { name: "Matea Mikić", table: 10 },
-      { name: "Željko Knežević", table: 8 },
-      { name: "Filip Todorić", table: 6 },
-      { name: "Ivan Levaković", table: 3 },
-      { name: "Mirela Hranić", table: 11 },
-      { name: "Ivona Kljunić", table: 14 },
-      { name: "Dragan Marković", table: 15 },
-      { name: "Snježana Sorčik", table: 12 },
-      { name: "Karmela Jakopiček", table: 16 },
-      { name: "Lara Deskar", table: 13 },
-      { name: "Magdalena Kratofil", table: 9 },
-      { name: "Ana Seder", table: 2 },
-      { name: "Ivana Ivković", table: 1 },
-      { name: "Ena Aničić", table: 5 },
-      { name: "Kristjan Ronko", table: 7 },
-      { name: "Milanko Marin", table: 4 },
-      { name: "Luka Fresl", table: 10 },
-      { name: "Sara Knežević", table: 8 },
-      { name: "Drago Baković", table: 6 },
-      { name: "Jelena Jakab", table: 3 },
-      { name: "Dora Hranić", table: 11 },
-      { name: "Marko Kljunić", table: 14 },
-      { name: "Mario Žuljević", table: 15 },
-      { name: "Mihajlo Sorčik", table: 12 },
-      { name: "Anica Jakopiček", table: 16 },
-      { name: "Marijo Kiš", table: 13 },
-      { name: "Borna Marin", table: 9 },
-      { name: "Josip Seder", table: 2 },
-      { name: "Ivan Ivković", table: 1 },
-      { name: "Dominik Lik", table: 5 },
-      { name: "Ana Babić", table: 7 },
-      { name: "Magdalena Marin", table: 4 },
-      { name: "Ana Mikić", table: 10 },
-      { name: "Karlo Knežević", table: 8 },
-      { name: "Manuela Bajan", table: 6 },
-      { name: "Josip Jakab", table: 3 },
-      { name: "Mihael Hudoletnjak", table: 11 },
-      { name: "Katja Kljunić", table: 14 },
-      { name: "Lucija Žuljević", table: 15 },
-      { name: "Višnja Sorčik", table: 12 },
-      { name: "Lidija Knežević", table: 16 },
-      { name: "Helena Tušek", table: 13 },
-      { name: "Lana Kovačević", table: 9 },
-      { name: "Josip Mikić", table: 2 },
-      { name: "Zlatko Seder", table: 1 },
-      { name: "Ivana Kurelja", table: 5 },
-      { name: "Ines Manz", table: 7 },
-      { name: "Gorana Asanović", table: 4 },
-      { name: "Vita Fresl", table: 10 },
-      { name: "Matija Hanžeković", table: 8 },
-      { name: "Nino Jansen", table: 6 },
-      { name: "Ana Lozančić", table: 3 },
-      { name: "Robert Hranić", table: 11 },
-      { name: "Ela Kljunić", table: 14 },
-      { name: "Matea Kichaz", table: 15 },
-      { name: "Slavko Kljunić", table: 12 },
-      { name: "Alen Knežević", table: 16 },
-      { name: "Selma Tojčić", table: 13 },
-      { name: "Ivan Puškarić", table: 9 },
-      { name: "Gabrijela Miličević Mikić", table: 2 },
-      { name: "Kristina Seder", table: 1 },
-      { name: "Luka Kurelja", table: 5 },
-      { name: "Hrvoje Manz", table: 7 },
-      { name: "Tanja Asanović Antonić", table: 4 },
-      { name: "Josipa Blažević", table: 10 },
-      { name: "Irena Pujić", table: 8 },
-      { name: "Martina Kelečić", table: 6 },
-      { name: "Hrvoje Lozančić", table: 3 },
-      { name: "Valentina Hranić", table: 11 },
-      { name: "Mirko Kljunić", table: 14 },
-      { name: "Stjepan Kichaz", table: 15 },
-      { name: "Ana Kljunić", table: 12 },
-      { name: "Dragica Sorčik", table: 16 },
-      { name: "Mislav Petrina", table: 13 },
-      { name: "Martina Puškarić", table: 9 },
-      { name: "Danica Blažević", table: 2 },
-      { name: "Vedran Benčić", table: 1 },
-      { name: "Ana Šobot", table: 5 },
-      { name: "Leon Manz", table: 7 },
-      { name: "Vesna Grgin", table: 4 },
-      { name: "Katarina Blažević", table: 10 },
-      { name: "Davor Pujić", table: 8 },
-      { name: "Ruža Gal", table: 6 },
-      { name: "Ivana Delić", table: 3 },
-      { name: "Nevenka Vincetić", table: 11 },
-      { name: "Katica Jakab", table: 14 },
-      { name: "Stjepan Felja", table: 15 },
-      { name: "Zvonko Gložić", table: 12 },
-      { name: "Ivica Dekanić", table: 16 },
-      { name: "Enio Biondić", table: 13 },
-      { name: "Stjepan Medaković", table: 9 },
-      { name: "Kaja Mikić", table: 2 },
-      { name: "Lea Stanarević", table: 1 },
-      { name: "Dean Šolaja", table: 5 },
-      { name: "Teo Manz", table: 7 },
-      { name: "Nikolina Grgin", table: 4 },
-      { name: "Aldin Rizvanović", table: 10 },
-      { name: "Luka Pavlović", table: 8 },
-      { name: "Tomo Gal", table: 6 },
-      { name: "Petra Delić", table: 3 },
-      { name: "Darko Vincetić", table: 11 },
-      { name: "Gordana Jakab", table: 14 },
-      { name: "Klementina Felja", table: 15 },
-      { name: "Kata Gložić", table: 12 },
-      { name: "Katica Dekanić", table: 16 },
-      { name: "Monika Ivanić", table: 13 },
-      { name: "Benjamin Mecanović", table: 9 },
-      { name: "Manda Jović", table: 2 },
-      { name: "Hrvoje Benčić", table: 1 },
-      { name: "Danica Vladić", table: 5 },
-      { name: "Andrija Rakoš", table: 7 },
-      { name: "Zoran Žuvela", table: 4 },
-      { name: "Miroslav Blažević", table: 10 },
-      { name: "Mia Pavlović", table: 8 },
-      { name: "Amra Avdić", table: 6 },
-      { name: "Katja Delić", table: 3 },
-      { name: "Branko Vrselja", table: 11 },
-      { name: "Mato Jakab", table: 14 },
-      { name: "Matej Felja", table: 15 },
-      { name: "Katarina Jakab", table: 12 },
-      { name: "Mato Jović", table: 2 },
-      { name: "Mihael Ivković", table: 1 },
-      { name: "Karlo Anić", table: 5 },
-      { name: "Dejana Rakoš", table: 7 },
-      { name: "Marija Mamuza", table: 8 },
-      { name: "Amrin muž", table: 6 },
-      { name: "Una Lozančić", table: 3 },
-      { name: "Vesna Vrselja", table: 11 },
-      { name: "Mladen Felja", table: 15 },
-      { name: "Verka Mikić", table: 2 },
-      { name: "Mateja Ljubić", table: 1 },
-      { name: "Leon Petric", table: 5 },
-      { name: "Marieta Rakoš", table: 7 },
-      { name: "Jakub Amrin", table: 6 },
-      { name: "Olivera Jakab", table: 3 },
-      { name: "Andrija Blažević", table: 2 },
-      { name: "Marko Ljubić", table: 1 },
-      { name: "Karla Kurtagić", table: 5 },
-      { name: "Kristina Rakoš", table: 7 },
-      { name: "Đuro Hranić", table: 3 }
+        {
+            "name": "Klara Seder",
+            "table": 1
+        },
+        {
+            "name": "Lucija Seder",
+            "table": 1
+        },
+        {
+            "name": "Ivana Ivković",
+            "table": 1
+        },
+        {
+            "name": "Ivan Ivković",
+            "table": 1
+        },
+        {
+            "name": "Zlatko Seder",
+            "table": 1
+        },
+        {
+            "name": "Kristina Seder",
+            "table": 1
+        },
+        {
+            "name": "Vedran Benčić",
+            "table": 1
+        },
+        {
+            "name": "Lea Stanarević",
+            "table": 1
+        },
+        {
+            "name": "Hrvoje Benčić",
+            "table": 1
+        },
+        {
+            "name": "Mihael Ivković",
+            "table": 1
+        },
+        {
+            "name": "Mateja Ljubić",
+            "table": 1
+        },
+        {
+            "name": "Marko Ljubić",
+            "table": 1
+        },
+        {
+            "name": "Janja Benčić",
+            "table": 2
+        },
+        {
+            "name": "Matija Benčić",
+            "table": 2
+        },
+        {
+            "name": "Ana Seder",
+            "table": 2
+        },
+        {
+            "name": "Josip Seder",
+            "table": 2
+        },
+        {
+            "name": "Josip Mikić",
+            "table": 2
+        },
+        {
+            "name": "Gabrijela Miličević Mikić",
+            "table": 2
+        },
+        {
+            "name": "Danica Blažević",
+            "table": 2
+        },
+        {
+            "name": "Kaja Mikić",
+            "table": 2
+        },
+        {
+            "name": "Manda Jović",
+            "table": 2
+        },
+        {
+            "name": "Mato Jović",
+            "table": 2
+        },
+        {
+            "name": "Verka Mikić",
+            "table": 2
+        },
+        {
+            "name": "Andrija Blažević",
+            "table": 2
+        },
+        {
+            "name": "Darinka Jakab Levaković",
+            "table": 3
+        },
+        {
+            "name": "Ivan Levaković",
+            "table": 3
+        },
+        {
+            "name": "Jelena Jakab",
+            "table": 3
+        },
+        {
+            "name": "Josip Jakab",
+            "table": 3
+        },
+        {
+            "name": "Ana Lozančić",
+            "table": 3
+        },
+        {
+            "name": "Hrvoje Lozančić",
+            "table": 3
+        },
+        {
+            "name": "Ivana Delić",
+            "table": 3
+        },
+        {
+            "name": "Petra Delić",
+            "table": 3
+        },
+        {
+            "name": "Katja Delić",
+            "table": 3
+        },
+        {
+            "name": "Una Lozančić",
+            "table": 3
+        },
+        {
+            "name": "Olivera Jakab",
+            "table": 3
+        },
+        {
+            "name": "Đuro Hranić",
+            "table": 3
+        },
+        {
+            "name": "Franjo Selgrad",
+            "table": 4
+        },
+        {
+            "name": "Dragana Marin",
+            "table": 4
+        },
+        {
+            "name": "Milanko Marin",
+            "table": 4
+        },
+        {
+            "name": "Magdalena Marin",
+            "table": 4
+        },
+        {
+            "name": "Gorana Asanović",
+            "table": 4
+        },
+        {
+            "name": "Tanja Asanović Antonić",
+            "table": 4
+        },
+        {
+            "name": "Vesna Grgin",
+            "table": 4
+        },
+        {
+            "name": "Nikolina Grgin",
+            "table": 4
+        },
+        {
+            "name": "Zoran Žuvela",
+            "table": 4
+        },
+        {
+            "name": "Dorotea Franjić",
+            "table": 5
+        },
+        {
+            "name": "Filip Dutina",
+            "table": 5
+        },
+        {
+            "name": "Ena Aničić",
+            "table": 5
+        },
+        {
+            "name": "Dominik Lik",
+            "table": 5
+        },
+        {
+            "name": "Ivana Kurelja",
+            "table": 5
+        },
+        {
+            "name": "Luka Kurelja",
+            "table": 5
+        },
+        {
+            "name": "Ana Šobot",
+            "table": 5
+        },
+        {
+            "name": "Dean Šolaja",
+            "table": 5
+        },
+        {
+            "name": "Danica Vladić",
+            "table": 5
+        },
+        {
+            "name": "Karlo Anić",
+            "table": 5
+        },
+        {
+            "name": "Leon Petric",
+            "table": 5
+        },
+        {
+            "name": "Mislav Mikić",
+            "table": 6
+        },
+        {
+            "name": "Matea Mikić",
+            "table": 6
+        },
+        {
+            "name": "Luka Fresl",
+            "table": 6
+        },
+        {
+            "name": "Ana Mikić",
+            "table": 6
+        },
+        {
+            "name": "Vita Fresl",
+            "table": 6
+        },
+        {
+            "name": "Josipa Blažević",
+            "table": 6
+        },
+        {
+            "name": "Katarina Blažević",
+            "table": 6
+        },
+        {
+            "name": "Aldin Rizvanović",
+            "table": 6
+        },
+        {
+            "name": "Miroslav Blažević",
+            "table": 6
+        },
+        {
+            "name": "Darko Hranić",
+            "table": 7
+        },
+        {
+            "name": "Mirela Hranić",
+            "table": 7
+        },
+        {
+            "name": "Dora Hranić",
+            "table": 7
+        },
+        {
+            "name": "Mihael Hudoletnjak",
+            "table": 7
+        },
+        {
+            "name": "Robert Hranić",
+            "table": 7
+        },
+        {
+            "name": "Valentina Hranić",
+            "table": 7
+        },
+        {
+            "name": "Nevenka Vincetić",
+            "table": 7
+        },
+        {
+            "name": "Darko Vincetić",
+            "table": 7
+        },
+        {
+            "name": "Branko Vrselja",
+            "table": 7
+        },
+        {
+            "name": "Vesna Vrselja",
+            "table": 7
+        },
+        {
+            "name": "Nada Knežević",
+            "table": 8
+        },
+        {
+            "name": "Željko Knežević",
+            "table": 8
+        },
+        {
+            "name": "Sara Knežević",
+            "table": 8
+        },
+        {
+            "name": "Matija Hanžeković",
+            "table": 8
+        },
+        {
+            "name": "Irena Pujić",
+            "table": 8
+        },
+        {
+            "name": "Davor Pujić",
+            "table": 8
+        },
+        {
+            "name": "Luka Pavlović",
+            "table": 8
+        },
+        {
+            "name": "Mia Pavlović",
+            "table": 8
+        },
+        {
+            "name": "Marija Mamuza",
+            "table": 8
+        },
+        {
+            "name": "Katarina Todorić",
+            "table": 9
+        },
+        {
+            "name": "Filip Todorić",
+            "table": 9
+        },
+        {
+            "name": "Drago Baković",
+            "table": 9
+        },
+        {
+            "name": "Manuela Bajan",
+            "table": 9
+        },
+        {
+            "name": "Nino Jansen",
+            "table": 9
+        },
+        {
+            "name": "Martina Kelečić",
+            "table": 9
+        },
+        {
+            "name": "Ruža Gal",
+            "table": 9
+        },
+        {
+            "name": "Tomo Gal",
+            "table": 9
+        },
+        {
+            "name": "Stjepan Kljunić",
+            "table": 10
+        },
+        {
+            "name": "Ivona Kljunić",
+            "table": 10
+        },
+        {
+            "name": "Marko Kljunić",
+            "table": 10
+        },
+        {
+            "name": "Katja Kljunić",
+            "table": 10
+        },
+        {
+            "name": "Ela Kljunić",
+            "table": 10
+        },
+        {
+            "name": "Mirko Kljunić",
+            "table": 10
+        },
+        {
+            "name": "Katica Jakab",
+            "table": 10
+        },
+        {
+            "name": "Gordana Jakab",
+            "table": 10
+        },
+        {
+            "name": "Mato Jakab",
+            "table": 10
+        },
+        {
+            "name": "Jasenka Ronko",
+            "table": 11
+        },
+        {
+            "name": "Ivan Ronko",
+            "table": 11
+        },
+        {
+            "name": "Kristjan Ronko",
+            "table": 11
+        },
+        {
+            "name": "Ana Babić",
+            "table": 11
+        },
+        {
+            "name": "Ines Manz",
+            "table": 11
+        },
+        {
+            "name": "Hrvoje Manz",
+            "table": 11
+        },
+        {
+            "name": "Leon Manz",
+            "table": 11
+        },
+        {
+            "name": "Teo Manz",
+            "table": 11
+        },
+        {
+            "name": "Andrija Rakoš",
+            "table": 11
+        },
+        {
+            "name": "Dejana Rakoš",
+            "table": 11
+        },
+        {
+            "name": "Marieta Rakoš",
+            "table": 11
+        },
+        {
+            "name": "Kristina Rakoš",
+            "table": 11
+        },
+        {
+            "name": "Ivo Sorčik",
+            "table": 12
+        },
+        {
+            "name": "Snježana Sorčik",
+            "table": 12
+        },
+        {
+            "name": "Mihajlo Sorčik",
+            "table": 12
+        },
+        {
+            "name": "Višnja Sorčik",
+            "table": 12
+        },
+        {
+            "name": "Slavko Kljunić",
+            "table": 12
+        },
+        {
+            "name": "Ana Kljunić",
+            "table": 12
+        },
+        {
+            "name": "Zvonko Gložić",
+            "table": 12
+        },
+        {
+            "name": "Kata Gložić",
+            "table": 12
+        },
+        {
+            "name": "Katarina Sorćik",
+            "table": 12
+        },
+        {
+            "name": "Tomislav Širić",
+            "table": 13
+        },
+        {
+            "name": "Magdalena Kratofil",
+            "table": 13
+        },
+        {
+            "name": "Borna Marin",
+            "table": 13
+        },
+        {
+            "name": "Lana Kovačević",
+            "table": 13
+        },
+        {
+            "name": "Ivan Puškarić",
+            "table": 13
+        },
+        {
+            "name": "Martina Puškarić",
+            "table": 13
+        },
+        {
+            "name": "Stjepan Medaković",
+            "table": 13
+        },
+        {
+            "name": "Benjamin Mecanović",
+            "table": 13
+        },
+        {
+            "name": "Antonio Bajivić",
+            "table": 14
+        },
+        {
+            "name": "Lara Deskar",
+            "table": 14
+        },
+        {
+            "name": "Marijo Kiš",
+            "table": 14
+        },
+        {
+            "name": "Helena Tušek",
+            "table": 14
+        },
+        {
+            "name": "Selma Tojčić",
+            "table": 14
+        },
+        {
+            "name": "Enio Biondić",
+            "table": 14
+        },
+        {
+            "name": "Monika Ivanić",
+            "table": 14
+        },
+        {
+            "name": "Mandica Sanković",
+            "table": 15
+        },
+        {
+            "name": "Dragan Marković",
+            "table": 15
+        },
+        {
+            "name": "Mario Žuljević",
+            "table": 15
+        },
+        {
+            "name": "Lucija Žuljević",
+            "table": 15
+        },
+        {
+            "name": "Matea Kichaz",
+            "table": 15
+        },
+        {
+            "name": "Stjepan Kichaz",
+            "table": 15
+        },
+        {
+            "name": "Stjepan Felja",
+            "table": 15
+        },
+        {
+            "name": "Klementina Felja",
+            "table": 15
+        },
+        {
+            "name": "Matej Felja",
+            "table": 15
+        },
+        {
+            "name": "Mladen Felja",
+            "table": 15
+        },
+        {
+            "name": "Damir Jakopiček",
+            "table": 16
+        },
+        {
+            "name": "Karmela Jakopiček",
+            "table": 16
+        },
+        {
+            "name": "Anica Jakopiček",
+            "table": 16
+        },
+        {
+            "name": "Lidija Knežević",
+            "table": 16
+        },
+        {
+            "name": "Alen Knežević",
+            "table": 16
+        },
+        {
+            "name": "Dragica Sorčik",
+            "table": 16
+        },
+        {
+            "name": "Filip Sorčik",
+            "table": 16
+        },
+        {
+            "name": "Ivica Dekanić",
+            "table": 16
+        },
+        {
+            "name": "Katica Dekanić",
+            "table": 16
+        }
     ];
 
     const listEl = document.getElementById("guest-list");
